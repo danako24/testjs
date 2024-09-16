@@ -1,46 +1,47 @@
 
-let nombre = "valentina"
-let apellido = "cid"
-let años = 3
-let vives= "santiago"
-let gato = "tomi"
+let puntaje_jugador = 0
+let puntaje_computador = 0
 
-let nombre_usuario = prompt('nombre y apellido de mi amorcito').toLowerCase()
+alert('EMPIEZA EL JUEGO, GANA 3 VECES')
 
+function juego(userchoice) {
+    const jugador = ['piedra', 'papel', 'tijera']
+    const pc = jugador[Math.floor(Math.random() * 3)]
 
-if (nombre + " " + apellido == nombre_usuario){
-    alert('si eres mi amorcito <3')
+    let resultado = ''
 
-} else {
-    alert('no eres 7.7')
-}
+    if (userchoice === pc) {
+        resultado = `Empate. Ambos eligieron ${userchoice}`
+    } else if (
+        (userchoice === 'piedra' && pc === 'tijera') ||
+        (userchoice === 'papel' && pc === 'piedra') ||
+        (userchoice === 'tijera' && pc === 'papel')
+    ) {
+        resultado = `¡Ganaste! ${userchoice} vence a ${pc}`
+        puntaje_jugador++
+        alert('ganaste')
+    } else {
+        resultado = `Perdiste. ${puntaje_computador} vence a ${userchoice}`
+        puntaje_computador++
+        alert('perdiste')
+    }
 
-let años_juntos= Number(prompt('cuantos años juntos?'))
     
-if (años == años_juntos){
-    alert('siiiiii')
-}
-else{
-    alert('mmmmmmm')
-}
+    document.getElementById('resultado').textContent = resultado
+    document.getElementById('puntaje').textContent = `Jugador : ${puntaje_jugador} | Computadora :${puntaje_computador}`
 
-let lugar = prompt('ciudad donde vives?').toLowerCase()
-
-if (vives == lugar){
-    alert('pues si donde mas')
-} else{
-    alert('ñao')
+    
+    if (puntaje_jugador === 3 || puntaje_computador === 3) {
+        fin()
+    }
 }
 
-let mascota = prompt('nombre de tu gatito').toLowerCase()
-
-if (gato == mascota){
-    alert('y la ivy? 7.7')
-} else{
-    alert(':c')
+function fin() {
+    const finalresult = puntaje_jugador === 3 ? '¡Ganaste el juego!' : 'Perdiste el juego.'
+    document.getElementById('resultado').textContent = finalresult
+    document.getElementById('btnPiedra').disabled = true
+    document.getElementById('btnPapel').disabled = true
+    document.getElementById('btnTijera').disabled = true
+    alert('FIN DEL JUEGO')
 }
 
-
-
-
-console.log('chao')

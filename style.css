@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EBD3F8;
+    height: 500px;
+    padding: 150px;
+    
+}
+
+h1{
+    color: #2E073F;
+    font-size: 80px;
+    margin: 70px;
+}
+
+.juego{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.juego button{
+    font-size: 40px;
+    color: #2E073F;
+    padding: 50px 50px;
+    background-color: #EBD3F8;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0 0 70px 0;
+}
+
+.juego button:hover{
+    background-color: #2E073F;
+    color: #EBD3F8;
+    transition: 100ms linear;
+    transform: scale(1.1);
+}
+
+.juego button:disabled{
+    background-color: #f8ebff;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+#resultado{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#puntaje{
+    font-size: 20px;
+    margin-top: 20px;
+}
